@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Assadick Abdelrahim — Portfolio cybersécurité</title>
+<meta name="description" content="Étudiant en Master 2 Cybersécurité à l'INSA Hauts-de-France et pentester junior. Recherche un stage de fin d'études de 5 à 6 mois à partir de mars 2027 — pentest, SOC ou GRC.">
+<meta name="author" content="Assadick Abdelrahim">
+
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Assadick Abdelrahim — Portfolio cybersécurité">
+<meta property="og:description" content="Pentester junior, M2 Cybersécurité INSA Hauts-de-France. Stage de fin d'études recherché à partir de mars 2027 — pentest, SOC ou GRC.">
+<meta property="og:url" content="https://assadick-dev.github.io/">
+<meta property="og:image" content="https://assadick-dev.github.io/og.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b6b70'/%3E%3Cpath d='M16 6l8 3v7c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V9l8-3z' fill='none' stroke='%23fff' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: single centered column, dossier-style. Identity header + scannable "recherche" card,
+   then three domain panels, project grid, and a timeline rail for parcours. */
+:root{
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#f6f7f9;
+  --card:#ffffff;
+  --ink:#11182a;
+  --muted:#59627a;
+  --faint:#8d94a8;
+  --line:#dde1e9;
+  --accent:#0b6b70;
+  --accent-soft:#e3f0f0;
+  --offensive:#9c4a3b;
+  --detection:#0b6b70;
+  --governance:#5a6830;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1118;--card:#151a24;--ink:#e7eaf1;--muted:#a3abbd;--faint:#7b8396;
+    --line:#242b38;--accent:#5bd0d6;--accent-soft:#16282c;
+    --offensive:#e3917f;--detection:#5bd0d6;--governance:#b4c56d;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1118;--card:#151a24;--ink:#e7eaf1;--muted:#a3abbd;--faint:#7b8396;
+  --line:#242b38;--accent:#5bd0d6;--accent-soft:#16282c;
+  --offensive:#e3917f;--detection:#5bd0d6;--governance:#b4c56d;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+img{max-width:100%}
+body{
+  margin:0;
+  background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:62rem;margin:0 auto;padding-inline:20px;padding-block:3.5rem 2rem}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+
+.eyebrow{
+  font-family:var(--f-mono);font-size:.69rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+}
+
+/* ── Header ─────────────────────────────── */
+.masthead{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:2.5rem;align-items:start}
+.identity{display:flex;flex-direction:column;gap:1.1rem;min-width:0}
+.name{font-size:clamp(2.1rem,5.5vw,3.05rem);font-weight:700;line-height:1.04}
+.role{font-family:var(--f-display);font-weight:600;font-size:1rem;color:var(--accent);letter-spacing:.01em}
+.pitch{font-size:1.09rem;color:var(--muted);max-width:34em}
+.pitch strong{color:var(--ink);font-weight:600}
+
+.seek{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;
+  padding:1.35rem 1.4rem;display:flex;flex-direction:column;gap:.95rem;min-width:0;
+}
+.seek-head{display:flex;align-items:center;gap:.5rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.seek-row{display:grid;grid-template-columns:7.2rem minmax(0,1fr);gap:.35rem .9rem;align-items:baseline}
+.seek-row dt{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.05em;color:var(--faint);text-transform:uppercase}
+.seek-row dd{margin:0;font-size:.95rem;font-weight:600;font-family:var(--f-display)}
+dl{margin:0;display:flex;flex-direction:column;gap:.6rem}
+
+/* ── Stats ──────────────────────────────── */
+.stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-block:3rem;
+}
+.stat{background:var(--card);padding:1.15rem 1.25rem;display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.stat b{font-family:var(--f-display);font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.stat span{font-size:.86rem;color:var(--muted);line-height:1.4}
+
+/* ── Sections ───────────────────────────── */
+section{margin-block:3.4rem}
+.sec-head{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.6rem;padding-bottom:.9rem;border-bottom:1px solid var(--line)}
+.sec-head h2{font-size:1.45rem;font-weight:600}
+.sec-head p{color:var(--muted);font-size:.98rem;max-width:44em}
+
+/* ── Domain panels ──────────────────────── */
+.domains{display:flex;flex-direction:column;gap:1.1rem}
+.domain{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1.5rem 1.55rem;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:1.3rem 2.2rem;min-width:0;
+}
+.domain-main{display:flex;flex-direction:column;gap:.7rem;min-width:0}
+.domain h3{font-size:1.16rem;font-weight:600}
+.domain .eyebrow{color:var(--hue)}
+.domain p{font-size:.98rem;color:var(--muted)}
+.domain-side{display:flex;flex-direction:column;gap:.7rem;min-width:0}
+.side-label{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem}
+.chip{
+  font-family:var(--f-mono);font-size:.74rem;padding:.24rem .55rem;border-radius:3px;
+  background:var(--paper);border:1px solid var(--line);color:var(--muted);
+}
+.detail{font-size:.9rem;color:var(--muted);border-left:2px solid var(--hue);padding-left:.85rem}
+.detail code{font-family:var(--f-mono);font-size:.82rem;color:var(--ink)}
+
+/* ── Projects ───────────────────────────── */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}
+.project{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1.4rem 1.45rem;
+  display:flex;flex-direction:column;gap:.65rem;min-width:0;
+}
+.project h3{font-size:1.06rem;font-weight:600}
+.project p{font-size:.94rem;color:var(--muted)}
+.project .eyebrow{color:var(--accent)}
+.plink{
+  font-family:var(--f-mono);font-size:.78rem;color:var(--accent);text-decoration:none;
+  border-bottom:1px solid transparent;align-self:flex-start;margin-top:auto;padding-top:.4rem;
+  overflow-wrap:anywhere;
+}
+.plink:hover{border-bottom-color:var(--accent)}
+
+/* ── Timeline ───────────────────────────── */
+.tl{display:flex;flex-direction:column;gap:1.5rem}
+.item{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:.35rem 1.5rem;align-items:baseline}
+.item .when{font-family:var(--f-mono);font-size:.78rem;color:var(--faint);letter-spacing:.02em}
+.item-body{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.item h3{font-size:1.02rem;font-weight:600}
+.item .org{font-family:var(--f-display);font-size:.9rem;color:var(--accent);font-weight:500}
+.item p{font-size:.94rem;color:var(--muted)}
+
+/* ── Two-column foot sections ───────────── */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.4rem}
+.certs{display:flex;flex-direction:column;gap:.1rem}
+.cert{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-block:.6rem;border-bottom:1px solid var(--line)}
+.cert b{font-family:var(--f-display);font-size:.95rem;font-weight:600}
+.cert span{font-family:var(--f-mono);font-size:.72rem;color:var(--faint);white-space:nowrap;letter-spacing:.04em}
+
+/* ── Contact ────────────────────────────── */
+.contact{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1.8rem;
+  display:flex;flex-wrap:wrap;gap:1.6rem;justify-content:space-between;align-items:center;
+}
+.contact-left{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.contact h2{font-size:1.25rem;font-weight:600}
+.contact p{color:var(--muted);font-size:.95rem}
+.contact-right{display:flex;flex-direction:column;gap:.55rem;min-width:0}
+.cline{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.cval{font-family:var(--f-mono);font-size:.86rem;user-select:all;overflow-wrap:anywhere}
+.copy{
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--accent-soft);color:var(--accent);border:1px solid transparent;
+  border-radius:3px;padding:.2rem .5rem;cursor:pointer;
+}
+.copy:hover{border-color:var(--accent)}
+.copy:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--faint);font-size:.8rem;font-family:var(--f-mono)}
+
+@media (max-width:760px){
+  .wrap{padding-block:2.4rem 1.5rem}
+  .masthead{grid-template-columns:1fr;gap:1.8rem}
+  .stats{grid-template-columns:1fr;margin-block:2.2rem}
+  .domain{grid-template-columns:1fr;gap:1.1rem}
+  .grid2,.cols{grid-template-columns:1fr}
+  .item{grid-template-columns:1fr;gap:.2rem}
+  section{margin-block:2.6rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="identity">
+      <div>
+        <p class="eyebrow">Candidature — stage de fin d'études 2027</p>
+        <h1 class="name">Assadick Abdelrahim</h1>
+      </div>
+      <p class="role">Test d'intrusion · Détection &amp; SOC · Gouvernance des risques</p>
+      <p class="pitch">Étudiant en <strong>Master 2 Cybersécurité</strong> à l'INSA Hauts-de-France et <strong>pentester junior</strong> en poste depuis 2025. Je cherche les failles d'un système, j'en démontre l'impact réel, puis je travaille l'autre côté : comment les repérer dans les journaux et comment les traiter comme un risque d'entreprise.</p>
+    </div>
+
+    <div class="seek">
+      <div class="seek-head"><span class="dot"></span><span class="eyebrow">Disponible</span></div>
+      <dl>
+        <div class="seek-row"><dt>Recherche</dt><dd>Stage de fin d'études conventionné</dd></div>
+        <div class="seek-row"><dt>Durée</dt><dd>5 à 6 mois</dd></div>
+        <div class="seek-row"><dt>Début</dt><dd>Mars 2027</dd></div>
+        <div class="seek-row"><dt>Mobilité</dt><dd>France et Europe</dd></div>
+        <div class="seek-row"><dt>Base</dt><dd>Valenciennes (59)</dd></div>
+        <div class="seek-row"><dt>Postes</dt><dd>Pentest · Analyste SOC · GRC</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>6 mois</b><span>d'expérience en test d'intrusion web, en entreprise</span></div>
+    <div class="stat"><b>Top 8 %</b><span>classement TryHackMe</span></div>
+    <div class="stat"><b>10 mois</b><span>de stages effectués avant le master 2</span></div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">Domaines</p>
+      <h2>Ce que je sais faire</h2>
+      <p>Trois métiers qui regardent le même système sous trois angles. Je ne prétends pas à l'expertise sur les trois : je sais travailler sur chacun et je comprends ce qu'ils s'apportent mutuellement.</p>
+    </div>
+
+    <div class="domains">
+
+      <article class="domain" style="--hue:var(--offensive)">
+        <div class="domain-main">
+          <p class="eyebrow">Offensif</p>
+          <h3>Test d'intrusion</h3>
+          <p>Je simule une attaque sur une application ou un réseau d'entreprise, je démontre jusqu'où elle peut aller, puis je restitue au client ce qu'il doit corriger en priorité. C'est mon métier actuel, à temps partiel, sur des applications web en clientèle.</p>
+          <p class="detail">Chaînes Active Directory travaillées en laboratoire : Kerberoasting <code>T1558.003</code>, DCSync <code>T1003.006</code>, abus d'ACL, attaques de délégation, AD CS, pivot multi-réseaux avec Ligolo-ng.</p>
+        </div>
+        <div class="domain-side">
+          <p class="side-label">Outils &amp; terrains</p>
+          <div class="chips">
+            <span class="chip">Applications web</span><span class="chip">Active Directory</span>
+            <span class="chip">Post-exploitation</span><span class="chip">Burp Suite</span>
+            <span class="chip">Ligolo-ng</span><span class="chip">Python</span>
+            <span class="chip">Dante Pro Lab</span><span class="chip">Write-ups publics</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="domain" style="--hue:var(--detection)">
+        <div class="domain-main">
+          <p class="eyebrow">Défensif</p>
+          <h3>Détection &amp; SOC</h3>
+          <p>L'autre côté du miroir. Avoir mené l'attaque change la façon d'écrire la règle qui la détecte : on sait quelles traces elle laisse vraiment, et lesquelles ne servent qu'à produire des fausses alertes.</p>
+          <p class="detail">Lab de détection complet monté et publié en libre accès : supervision Wazuh, télémétrie Sysmon, règles personnalisées rattachées à la matrice MITRE ATT&amp;CK. Analyse forensique de mémoire vive sous Volatility sur un poste compromis via MS17-010.</p>
+        </div>
+        <div class="domain-side">
+          <p class="side-label">Outils &amp; terrains</p>
+          <div class="chips">
+            <span class="chip">Wazuh</span><span class="chip">Sysmon</span>
+            <span class="chip">MITRE ATT&amp;CK</span><span class="chip">Règles de détection</span>
+            <span class="chip">Volatility</span><span class="chip">Forensique mémoire</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="domain" style="--hue:var(--governance)">
+        <div class="domain-main">
+          <p class="eyebrow">Gouvernance</p>
+          <h3>Risque &amp; conformité</h3>
+          <p>Traduire un problème technique en décision d'entreprise : ce que l'organisation a à protéger, face à quelles sources de risque, et ce qu'elle choisit de traiter en premier. C'est la partie du métier qui se joue en réunion, pas en ligne de commande.</p>
+          <p class="detail">Formation à la méthode <strong>EBIOS Risk Manager</strong> de l'ANSSI : socle de sécurité, sources de risque et objectifs visés, scénarios stratégiques, scénarios opérationnels, traitement du risque.</p>
+        </div>
+        <div class="domain-side">
+          <p class="side-label">Outils &amp; terrains</p>
+          <div class="chips">
+            <span class="chip">EBIOS Risk Manager</span><span class="chip">Analyse de risque</span>
+            <span class="chip">Audit</span><span class="chip">Restitution client</span>
+            <span class="chip">Rédaction</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">Réalisations</p>
+      <h2>Projets</h2>
+      <p>Quatre travaux menés en autonomie, du cadrage jusqu'au livrable. Chaque compromission de laboratoire donne lieu à un write-up rédigé et publié — la restitution fait partie du métier autant que l'exploitation.</p>
+    </div>
+
+    <div class="grid2">
+
+      <article class="project">
+        <p class="eyebrow">Lab publié · open source</p>
+        <h3>soc-detection-lab</h3>
+        <p>Une infrastructure de trois machines virtuelles reproduisant un parc Windows supervisé. Wazuh 4.14.5 en collecteur central, Sysmon avec la configuration SwiftOnSecurity sur les postes, et un jeu de règles de détection que j'ai écrites puis rattachées aux techniques MITRE ATT&amp;CK correspondantes. Dépôt public et documenté.</p>
+        <a class="plink" href="https://github.com/assadick-dev/soc-detection-lab" target="_blank" rel="noopener">github.com/assadick-dev/soc-detection-lab →</a>
+      </article>
+
+      <article class="project">
+        <p class="eyebrow">Développement · Python</p>
+        <h3>Reconforge</h3>
+        <p>Outil de reconnaissance modulaire en Python asynchrone, conçu pour la phase de cartographie d'un test d'intrusion. Pile technique typer, httpx, aiodns et pydantic v2. La spécification technique a été rédigée avant la première ligne de code — c'est la méthode que j'applique à tout projet qui dépasse le script jetable.</p>
+        <a class="plink" href="https://github.com/assadick-dev" target="_blank" rel="noopener">github.com/assadick-dev →</a>
+      </article>
+
+      <article class="project">
+        <p class="eyebrow">Laboratoire · Pro Lab Dante de Hack The Box</p>
+        <h3>Compromission de domaine Windows</h3>
+        <p>Compromission de bout en bout du <strong>Pro Lab Dante</strong> de Hack The Box — un réseau d'entreprise complet, et non une machine isolée : du premier point d'entrée jusqu'au contrôleur de domaine. Kerberoasting, DCSync, abus de listes de contrôle d'accès, attaques de délégation, exploitation des services de certificats, et pivot entre sous-réseaux cloisonnés avec Ligolo-ng. Travail poursuivi en préparation de la certification CPTS.</p>
+        <a class="plink" href="https://github.com/assadick-dev" target="_blank" rel="noopener">Write-ups publiés sur GitHub →</a>
+      </article>
+
+      <article class="project">
+        <p class="eyebrow">Laboratoire · applications web</p>
+        <h3>Chaînes d'exploitation documentées</h3>
+        <p>Compromissions complètes menées sur plateforme d'entraînement et rédigées de bout en bout : exploitation d'une SSRF menant à une CVE applicative récente, enchaînement NFS → IMAP → SSRF sur serveur de messagerie, et exécution de code à distance sur une application Next.js suivie d'une élévation de privilèges via le protocole de débogage de Chrome.</p>
+        <a class="plink" href="https://github.com/assadick-dev" target="_blank" rel="noopener">Write-ups publiés sur GitHub →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <p class="eyebrow">Parcours</p>
+      <h2>Expérience</h2>
+    </div>
+    <div class="tl">
+      <article class="item">
+        <p class="when">2025 — aujourd'hui</p>
+        <div class="item-body">
+          <h3>Pentester junior <span style="color:var(--faint);font-weight:500">· temps partiel, télétravail</span></h3>
+          <p class="org">ENASTIC-TCHAD — N'Djamena</p>
+          <p>Tests d'intrusion sur applications web : reconnaissance, exploitation, qualification de l'impact et restitution au client. Travail à distance depuis la France, en parallèle du master.</p>
+        </div>
+      </article>
+      <article class="item">
+        <p class="when">Mai — août 2025</p>
+        <div class="item-body">
+          <h3>Machine learning &amp; systèmes distribués <span style="color:var(--faint);font-weight:500">· stage, 4 mois</span></h3>
+          <p class="org">Université Toulouse – Jean Jaurès — Toulouse</p>
+          <p>Conception et mise en place d'un système d'apprentissage automatique distribué sur cluster de Raspberry Pi, pour la prévision de séries temporelles : configuration et orchestration du cluster, entraînement réparti des modèles, analyse des performances et optimisation du pipeline d'entraînement.</p>
+        </div>
+      </article>
+      <article class="item">
+        <p class="when">Avril — septembre 2023</p>
+        <div class="item-body">
+          <h3>Développeur blockchain <span style="color:var(--faint);font-weight:500">· stage, 6 mois</span></h3>
+          <p class="org">Université Virtuelle du Tchad — N'Djaména</p>
+          <p>Sécurisation des procès-verbaux d'examen de l'université. Le travail a commencé par l'étude des vulnérabilités du système de gestion en place, puis la conception d'un modèle blockchain garantissant l'intégrité, la traçabilité et la transparence des données. Livré avec un rapport technique et des recommandations de déploiement — ma première mission sur un enjeu de sécurité réel.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="cols">
+      <div>
+        <div class="sec-head">
+          <p class="eyebrow">Diplômes</p>
+          <h2>Formation</h2>
+        </div>
+        <div class="tl">
+          <article class="item" style="grid-template-columns:1fr;gap:.25rem">
+            <p class="when">2025 — 2027</p>
+            <div class="item-body">
+              <h3>Master Cybersécurité (CDSI)</h3>
+              <p class="org">INSA Hauts-de-France — Valenciennes</p>
+            </div>
+          </article>
+          <article class="item" style="grid-template-columns:1fr;gap:.25rem">
+            <p class="when">2022 — 2025</p>
+            <div class="item-body">
+              <h3>Licence Mathématiques &amp; Informatique (MIASHS)</h3>
+              <p class="org">Université Toulouse II — Jean Jaurès</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-head">
+          <p class="eyebrow">En cours &amp; à venir</p>
+          <h2>Certifications</h2>
+        </div>
+        <div class="certs">
+          <div class="cert"><b>CPTS — Hack The Box</b><span>en préparation</span></div>
+          <div class="cert"><b>EBIOS Risk Manager</b><span>en formation</span></div>
+          <div class="cert"><b>OSCP — OffSec</b><span>objectif 2027</span></div>
+        </div>
+        <div class="sec-head" style="margin-top:2.2rem">
+          <p class="eyebrow">Langues</p>
+          <h2>Communication</h2>
+        </div>
+        <div class="certs">
+          <div class="cert"><b>Français</b><span>langue de travail</span></div>
+          <div class="cert"><b>Anglais</b><span>technique</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-left">
+      <p class="eyebrow">Prise de contact</p>
+      <h2>Parlons de votre stage</h2>
+      <p>Disponible pour un échange à tout moment — je réponds sous 24 h.</p>
+    </div>
+    <div class="contact-right">
+      <div class="cline">
+        <a class="cval" id="mail" href="mailto:abdelrahimassadick@gmail.com">abdelrahimassadick@gmail.com</a>
+        <button class="copy" id="copy" type="button">Copier</button>
+      </div>
+      <div class="cline">
+        <a class="cval" href="https://www.linkedin.com/in/abdelrahim-assadick-b169692a9" target="_blank" rel="noopener">linkedin.com/in/abdelrahim-assadick</a>
+      </div>
+      <div class="cline">
+        <a class="cval" href="https://github.com/assadick-dev" target="_blank" rel="noopener">github.com/assadick-dev</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>Assadick Abdelrahim — Valenciennes, France</footer>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy'),mail=document.getElementById('mail');
+  if(!btn||!mail)return;
+  btn.addEventListener('click',function(){
+    var done=function(){btn.textContent='Copié';setTimeout(function(){btn.textContent='Copier';},1800);};
+    var fallback=function(){
+      try{
+        var r=document.createRange();r.selectNodeContents(mail);
+        var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+        btn.textContent='Sélectionné';setTimeout(function(){btn.textContent='Copier';},1800);
+      }catch(e){}
+    };
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(mail.textContent.trim()).then(done,fallback);
+      }else{fallback();}
+    }catch(e){fallback();}
+  });
+})();
+</script>
+</body>
+</html>
